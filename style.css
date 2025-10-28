@@ -1,0 +1,124 @@
+:root {
+  --primary: #306844;
+  --primary-dark: #1e402a;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+  --bg: #fdfdf9;
+  --dark-bg: #1a1a1a;
+  --dark-text: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: #333; transition: 0.5s; }
+body.dark { background: var(--dark-bg); color: var(--dark-text); }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
+body.dark h1, body.dark h2, body.dark h3 { color: #a8d5ba; }
+.container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 4px; background: var(--primary); width: 0%; z-index: 9999; transition: 0.3s;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed; top: 20px; right: 20px; background: var(--primary); color: white; border: none; padding: 10px 16px; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 1000; box-shadow: 0 4px 15px rgba(48,104,68,0.3);
+}
+.theme-toggle:hover { background: var(--primary-dark); }
+
+/* Navbar */
+.navbar {
+  position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 998; transition: 0.3s;
+}
+body.dark .navbar { background: rgba(26,26,26,0.95); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+.logo { font-size: 1.9rem; font-weight: bold; color: var(--primary); }
+body.dark .logo { color: #a8d5ba; }
+.nav-menu { display: flex; gap: 2.5rem; list-style: none; }
+.nav-link { color: #333; text-decoration: none; font-weight: 600; position: relative; transition: 0.3s; }
+body.dark .nav-link { color: #e0e0e0; }
+.nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
+.nav-link:hover::after { width: 100%; }
+.menu-toggle { display: none; cursor: pointer; font-weight: bold; color: var(--primary); }
+
+/* Hero Parallax */
+.hero {
+  height: 100vh; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+}
+.hero-layer {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(48,104,68,0.9), rgba(48,104,68,0.8)), url('images/hero.jpg') center/cover; transform: translateY(0);
+}
+.hero-content h1 { font-size: 5rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.5rem; margin-bottom: 2rem; opacity: 0.95; }
+.btn {
+  background: white; color: var(--primary); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); transition: 0.4s;
+}
+.btn:hover { background: var(--accent); color: white; transform: translateY(-5px); }
+
+/* Sections */
+.section-title { text-align: center; font-size: 3rem; margin-bottom: 3rem; position: relative; }
+.section-title::after { content: ''; width: 100px; height: 4px; background: var(--primary); display: block; margin: 20px auto; border-radius: 2px; }
+.about, .menu, .gallery, .contact { padding: 120px 0; }
+.about { background: white; }
+.menu { background: #f8f9f5; }
+.gallery { background: white; }
+
+/* Search & Filter */
+.search-bar {
+  width: 100%; max-width: 500px; margin: 0 auto 30px; padding: 14px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 1.1rem; display: block;
+}
+.filter-buttons { text-align: center; margin-bottom: 40px; }
+.filter-buttons button {
+  background: white; border: 2px solid var(--primary); color: var(--primary); padding: 10px 20px; margin: 0 8px; border-radius: 50px; cursor: pointer; transition: 0.3s;
+}
+.filter-buttons button.active, .filter-buttons button:hover { background: var(--primary); color: white; }
+
+/* 3D Menu Cards */
+.menu-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+}
+.menu-item {
+  perspective: 1000px; height: 380px;
+}
+.menu-card {
+  width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: 0.8s; cursor: pointer; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.menu-item:hover .menu-card { transform: rotateY(180deg); }
+.menu-front, .menu-back {
+  position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; overflow: hidden;
+}
+.menu-front { background: white; }
+.menu-back {
+  background: var(--primary); color: white; transform: rotateY(180deg); padding: 30px; display: flex; flex-direction: column; justify-content: center; text-align: center;
+}
+.menu-front img { width: 100%; height: 200px; object-fit: cover; }
+.menu-front h3 { margin: 15px; color: var(--primary); font-size: 1.4rem; }
+.price { font-weight: bold; font-size: 1.4rem; color: var(--primary); margin: 10px 15px; }
+.menu-back p { font-size: 1rem; line-height: 1.6; }
+
+/* Masonry Gallery */
+.masonry-grid {
+  column-count: 3; column-gap: 20px;
+}
+.masonry-item {
+  break-inside: avoid; margin-bottom: 20px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.4s; cursor: pointer;
+}
+.masonry-item:hover { transform: scale(1.03); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+.masonry-item img { width: 100%; display: block; }
+
+/* Lightbox */
+.lightbox {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 2000;
+}
+.lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+.close { position: absolute; top: 30px; right: 40px; color: white; font-size: 3.5rem; cursor: pointer; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-menu { position: fixed; top: 70px; left: -100%; width: 100%; background: white; flex-direction: column; padding: 20px; transition: 0.3s; }
+  .nav-menu.active { left: 0; }
+  .masonry-grid { column-count: 2; }
+  .hero-content h1 { font-size: 3rem; }
+}

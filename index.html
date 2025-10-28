@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grital Restaurant | Ultimate Dining</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#306844">
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" id="theme-toggle">Dark Mode</button>
+
+  <!-- Sticky Nav -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo">Grital Restaurant</div>
+      <div class="menu-toggle">Menu</div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Parallax Hero -->
+  <header class="hero parallax" id="home">
+    <div class="hero-layer" data-speed="0.5">
+      <div class="hero-content">
+        <h1 class="gsap-text">Grital Restaurant</h1>
+        <p>Farm-fresh. Artisanal. Unforgettable.</p>
+        <a href="#menu" class="btn gsap-btn">Explore Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title gsap-title">Our Story</h2>
+      <p class="gsap-text">
+        Since 2015, we've partnered with local farmers to craft seasonal, sustainable dishes in our open kitchen.
+      </p>
+      <img src="images/restaurant-interior.jpg" alt="Interior" class="about-img gsap-img">
+    </div>
+  </section>
+
+  <!-- Live Search Menu -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <h2 class="section-title gsap-title">Seasonal Menu</h2>
+      <input type="text" id="menu-search" placeholder="Search dishes..." class="search-bar gsap-search">
+      <div class="filter-buttons gsap-filter">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="main">Main</button>
+        <button data-filter="appetizer">Appetizer</button>
+        <button data-filter="dessert">Dessert</button>
+      </div>
+      <div class="menu-grid" id="menu-grid">
+        <!-- Menu items will be injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Masonry Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h2 class="section-title gsap-title">Food Gallery</h2>
+      <div class="masonry-grid" id="masonry-grid">
+        <!-- Images injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title gsap-title">Visit Us</h2>
+      <p>123 Garden Lane, Greenhaven</p>
+      <p><strong>Phone:</strong> (555) 987-6543</p>
+      <p><strong>Hours:</strong> Tue–Sun: 11AM–10PM</p>
+      <div class="map gsap-img">
+        <img src="images/map.jpg" alt="Map">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Grital Restaurant. Crafted with Local Love.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">×</span>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
